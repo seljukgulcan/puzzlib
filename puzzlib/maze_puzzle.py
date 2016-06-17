@@ -1,3 +1,5 @@
+from puzzle import Puzzle
+
 class MazePuzzle( Puzzle):
 	'''
 		Maze puzzle

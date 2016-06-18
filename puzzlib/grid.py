@@ -21,12 +21,15 @@ class Grid(object):
 	
 	def __const_from_row_col( self, no_of_rows, no_of_cols):
 		
+		if( no_of_rows <= 0 or no_of_cols <= 0):
+			raise ValueError("Grid constructor can only take positive values")
+
 		self._grid = [[Grid.DEFAULT_VALUE] * no_of_cols for i in xrange( no_of_rows)]
 		self._no_of_rows = no_of_rows
 		self._no_of_cols = no_of_cols
 	
 	#PUBLIC METHODS
-	def set_value( self, value, row_no, col_no):
+	def set_value( self, row_no, col_no, value):
 		
 		self._grid[ row_no][ col_no] = value
 	

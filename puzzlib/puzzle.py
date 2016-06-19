@@ -23,3 +23,6 @@ class Puzzle(object):
 	
 	def is_active( self):
 		return self.is_started() and not self.is_over()
+
+	def start( self):
+		self._is_started = True

@@ -19,10 +19,10 @@ class TestGrid(unittest.TestCase):
 
 		grid = Grid( 3, 5)
 
-		grid.set_value( 1, 2, -8)
-		grid.set_value( 2, 1, 4)
-		grid.set_value( 0, 0, 5)
+		grid.set_value( (1, 2), -8)
+		grid.set_value( (2, 1), 4)
+		grid.set_value( (0, 0), 5)
 
-		self.assertEqual( grid.get_value( 1, 2) , -8)
-		self.assertEqual( grid.get_value( 2, 1) , 4)
-		self.assertEqual( grid.get_value( 0, 0) , 5)
+		self.assertEqual( grid.get_value( (1, 2)) , -8)
+		self.assertEqual( grid.get_value( (2, 1)) , 4)
+		self.assertEqual( grid.get_value( (0, 0)) , 5)

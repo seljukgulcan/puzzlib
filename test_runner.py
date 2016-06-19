@@ -1,7 +1,7 @@
-import libunittest
-import unittest
+from libunittest import *
+from unittest import *
 
-testList = [libunittest.TestGrid]
+testList = [TestCoord, TestTile, TestGrid, TestMove, TestMazePuzzle]
 testLoad = unittest.TestLoader()
  
 caseList = []
@@ -9,7 +9,10 @@ for testCase in testList:
     testSuite = testLoad.loadTestsFromTestCase(testCase)
     caseList.append(testSuite)
  
-suite = unittest.TestSuite(caseList)
+def start_test():
+	suite = unittest.TestSuite(caseList)
 
-runner = unittest.TextTestRunner()
-runner.run(suite)
+	runner = unittest.TextTestRunner()
+	runner.run(suite)
+
+start_test()

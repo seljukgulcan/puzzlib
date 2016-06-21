@@ -46,6 +46,34 @@ class Grid(object):
 		
 		return self._grid[ pos[0]][ pos[1]].get_value()
 
+	def save( self, filename):
+		f = open( filename, "w")
+		f.write( str( self._no_of_rows) + " " + str( self._no_of_cols) + "\n")
+		for i in self._grid:
+			for j in i:
+				f.write( str( j.get_value()) + " ")
+			f.write( "\n")
+
+	@staticmethod
+	def load( filename):
+		f = open( filename, "r")
+		size = None
+		grid = None
+		line_no = 0
+		for line in f:
+			if( line[0] == "#"):
+				continue
+			if( size is None):
+				size = tuple( map( int, line.split()))
+				grid = Grid( size)
+				continue
+			row = map( int, line.split())
+			for i in xrange( len( row)):
+				grid.set_value( ( line_no, i), row[i])
+			line_no += 1
+
+		return grid
+
 	def __str__(self):
 
 		retVal = ""

@@ -5,7 +5,7 @@
 
 import pygame
 import os
-os.chdir( "C:\Users\Shathra\Desktop\puzzlib_gui")
+#os.chdir( "C:\Users\Shathra\Desktop\puzzlib_gui")
 
 white = (180,180,180)
 black = (120,120,120)

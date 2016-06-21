@@ -8,25 +8,25 @@ class Coord(object):
 		if( len(args) == 0):
 			__init__( (0, 0))
 		if( len(args) == 1 and type(args[0]) is tuple):
-			self.__const_from_tuple( args[0])
+			self._const_from_tuple( args[0])
 		elif( len(args) == 2 and type( args[0]) is int and type( args[1]) is int):
-			self.__const_from_row_col( args[0], args[1])
+			self._const_from_row_col( args[0], args[1])
 		else:
 			raise ValueError("Coord constructor can only take pair-tuple or row-col pair")
 
-	def __const_from_tuple( self, t):
-		__const_from_row_col( t[0], t[1])
+	def _const_from_tuple( self, t):
+		_const_from_row_col( t[0], t[1])
 
-	def __const_from_row_col( self, row_no, col_no):
-		self.row_no = row_no
-		self.col_no = col_no
+	def _const_from_row_col( self, row_no, col_no):
+		self._row_no = row_no
+		self._col_no = col_no
 
 	# PUBLIC METHODS
 	def get_row_no( self):
-		return self.row_no
+		return self._row_no
 
 	def get_col_no( self):
-		return self.col_no
+		return self._col_no
 
 	def get_x( self):
 		return self.get_col_no()

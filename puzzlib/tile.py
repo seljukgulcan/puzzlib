@@ -7,11 +7,11 @@ class Tile(object):
 	
 	# CONSTRUCTORS
 	def __init__( self, init_val = DEFAULT_VALUE):
-		self.__value = init_val
+		self._value = init_val
 
 	# PUBLIC METHODS
 	def get_value( self):
-		return self.__value
+		return self._value
 
 	def set_value( self, value):
-		self.__value = value
+		self._value = value

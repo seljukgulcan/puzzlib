@@ -2,6 +2,8 @@
 
 Python library for various puzzle games
 
+ - [Documentation](https://github.com/Shathra/puzzlib/wiki/Documentation)
+
 ## Introduction
 
 I like trying to solve puzzles. Often I think how I make computer solve them and I have programmed some traditional puzzles before. So I just thought that a library which helps me design, generate and solve various puzzles would be nice. That is the starting point of this project.

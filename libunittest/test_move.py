@@ -1,5 +1,5 @@
 import unittest
-from puzzlib import *
+from puzz import *
 
 class TestMove( unittest.TestCase):
 

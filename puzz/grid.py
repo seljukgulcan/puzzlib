@@ -8,16 +8,7 @@ class Grid(object):
 	'''
 	
 	#CONSTRUCTORS
-	def __init__( self, *args):
-		if( len(args) == 1 and type(args[0]) is tuple):
-			self.__const_from_shape( args[0])
-		elif( len(args) == 2 and type( args[0]) is int and type( args[1]) is int):
-			self.__const_from_row_col( args[0], args[1])
-		else:
-			raise ValueError("Grid constructor can only take shape tuple or row-col pair")
-	
-	def __const_from_shape( self, shape):
-		
+	def __init__( self, shape):
 		self.__const_from_row_col( shape[0], shape[1])
 	
 	def __const_from_row_col( self, no_of_rows, no_of_cols):
@@ -25,7 +16,6 @@ class Grid(object):
 		if( no_of_rows <= 0 or no_of_cols <= 0):
 			raise ValueError("Grid constructor can only take positive values")
 
-		#self._grid = [[Tile()] * no_of_cols for i in xrange( no_of_rows)]
 		self._grid = [[Tile() for j in range(no_of_cols)] for i in range(no_of_rows)]
 		self._no_of_rows = no_of_rows
 		self._no_of_cols = no_of_cols
@@ -40,18 +30,19 @@ class Grid(object):
 
 	def set_value( self, pos, value):
 		
-		self._grid[ pos[0]][ pos[1]].set_value( value)
+		self._grid[ pos[0]][ pos[1]] = value
 	
 	def get_value( self, pos):
 		
-		return self._grid[ pos[0]][ pos[1]].get_value()
+		return self._grid[ pos[0]][ pos[1]]
 
 	def save( self, filename):
 		f = open( filename, "w")
 		f.write( str( self._no_of_rows) + " " + str( self._no_of_cols) + "\n")
 		for i in self._grid:
 			for j in i:
-				f.write( str( j.get_value()) + " ")
+				f.write( str( j))
+				f.write( " ")
 			f.write( "\n")
 
 	@staticmethod
@@ -79,6 +70,6 @@ class Grid(object):
 		retVal = ""
 		for i in self._grid:
 			for j in i:
-				retVal += str( j.get_value()) + " "
+				retVal += str( j) + " "
 			retVal += "\n"
 		return retVal

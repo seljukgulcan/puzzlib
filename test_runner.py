@@ -1,7 +1,7 @@
 from libunittest import *
 from unittest import *
 
-testList = [TestCoord, TestTile, TestGrid, TestMove, TestMazePuzzle]
+testList = [TestGrid, TestMazePuzzle]
 testLoad = unittest.TestLoader()
  
 caseList = []
@@ -15,4 +15,5 @@ def start_test():
 	runner = unittest.TextTestRunner()
 	runner.run(suite)
 
-start_test()
+if __name__ == '__main__':
+	start_test()

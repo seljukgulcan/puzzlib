@@ -56,3 +56,30 @@ class TestMazePuzzle( unittest.TestCase):
 		self.assertFalse( p.is_obstacle( (0,1)))
 		self.assertFalse( p.is_obstacle( (1,0)))
 		self.assertTrue( p.is_obstacle( (1,1)))
+
+	def test_save_load( self):
+
+		p = MazePuzzle( (2, 2))
+
+		path = r"dev/test_load_save.tt"
+
+		s_pos = (1,1)
+		p.set_start_position( s_pos)
+
+		p.save( path)
+
+		s = MazePuzzle.load( path)
+
+		self.assertEqual( s_pos, s.get_start_position())
+
+		os.remove( path)
+
+	def test_set_allowed_moves( self):
+
+		p = MazePuzzle( (2,2))
+
+		moves = {(1,5),(8,2)}
+
+		p.set_allowed_moves( moves)
+
+		self.assertEqual( moves, p.get_allowed_moves())
